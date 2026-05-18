@@ -2,11 +2,13 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/mouse.h>
 
 #define BASE 0
 #define LOWER 1
 #define RAISE 2
 #define EXTRA 3
+#define MOUSE 4
 
 / {
     combos {
@@ -27,7 +29,7 @@
                 &kp ESC   &kp Q     &kp W     &kp E     &kp R     &kp T       &kp Y     &kp U     &kp I      &kp O     &kp P     &kp BSPC
                 &kp LSHFT &kp A     &kp S     &kp D     &kp F     &kp G       &kp H     &kp J     &kp K      &kp L     &kp SEMI  &kp DEL
                 &kp TAB   &kp Z     &kp X     &kp C     &kp V     &kp B       &kp N     &kp M     &kp COMMA  &kp DOT   &kp UP    &kp FSLH
-                &kp LCTRL &kp LGUI  &kp LALT  &kp RGUI  &mo LOWER &kp SPACE   &kp RET   &mo RAISE &kp RGUI   &kp LEFT  &kp DOWN  &kp RIGHT
+                &kp LCTRL &kp LGUI  &kp LALT  &kp RGUI  &mo LOWER &kp SPACE   &kp RET   &mo RAISE &mo MOUSE  &kp LEFT  &kp DOWN  &kp RIGHT
             >;
         };
 
@@ -58,6 +60,16 @@
                 &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
+            >;
+        };
+
+        mouse_layer {
+            display-name = "Mouse";
+            bindings = <
+                &trans &trans &trans &trans &trans &trans     &none          &mmv MOVE_UP    &none            &none     &none     &none
+                &trans &trans &trans &trans &trans &trans     &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none     &none     &none
+                &trans &trans &trans &trans &trans &trans     &none          &mkp LCLK       &none            &none     &none     &none
+                &trans &trans &trans &trans &trans &trans     &mkp RCLK      &none           &mkp MCLK        &none     &none     &none
             >;
         };
     };
